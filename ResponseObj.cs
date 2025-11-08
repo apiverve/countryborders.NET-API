@@ -4,55 +4,58 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class coordinates
-{
-    [JsonProperty("lat")]
-    public int lat { get; set; }
+    /// <summary>
+    /// Coordinates data
+    /// </summary>
+    public class Coordinates
+    {
+        [JsonProperty("lat")]
+        public int Lat { get; set; }
 
-    [JsonProperty("lng")]
-    public int lng { get; set; }
+        [JsonProperty("lng")]
+        public int Lng { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("country")]
+        public string Country { get; set; }
 
-public class data
-{
-    [JsonProperty("country")]
-    public string country { get; set; }
+        [JsonProperty("cca2")]
+        public string Cca2 { get; set; }
 
-    [JsonProperty("cca2")]
-    public string cca2 { get; set; }
+        [JsonProperty("landlocked")]
+        public bool Landlocked { get; set; }
 
-    [JsonProperty("landlocked")]
-    public bool landlocked { get; set; }
+        [JsonProperty("region")]
+        public string Region { get; set; }
 
-    [JsonProperty("region")]
-    public string region { get; set; }
+        [JsonProperty("subregion")]
+        public string Subregion { get; set; }
 
-    [JsonProperty("subregion")]
-    public string subregion { get; set; }
+        [JsonProperty("coordinates")]
+        public Coordinates Coordinates { get; set; }
 
-    [JsonProperty("coordinates")]
-    public coordinates coordinates { get; set; }
+        [JsonProperty("borders")]
+        public string[] Borders { get; set; }
 
-    [JsonProperty("borders")]
-    public string[] borders { get; set; }
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-}
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
